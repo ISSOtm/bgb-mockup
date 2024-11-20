@@ -1,0 +1,156 @@
+:root {
+	background-color: #379;
+}
+
+#settings {
+	background-color: #eee;
+	border: 1px outset #222;
+	padding: 2px;
+
+	font: 12px sans-serif;
+
+	box-sizing: border-box;
+	width: 420px;
+	height: 388px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+}
+
+#contents,
+footer {
+	margin: 8px;
+}
+#contents {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+main {
+	flex-grow: 1;
+}
+
+header {
+	background-color: #38f;
+
+	font: icon;
+
+	display: flex;
+	justify-content: stretch;
+	align-items: baseline;
+}
+.wm-button:not(.wm-button + .wm-button) {
+	margin-left: auto;
+}
+.wm-button {
+	background-color: #eee;
+	border: 1px outset #444;
+
+	flex: none;
+	margin: 1px;
+	height: 20px;
+	width: 20px;
+	text-align: center;
+}
+
+nav {
+	padding: 3px 3px 0;
+}
+nav > * {
+	display: flex;
+	justify-content: stretch;
+}
+nav button {
+	flex: 1 0 max-content;
+	border: 1px solid #999;
+	border-radius: 3px 3px 0 0;
+	background-color: #eee;
+}
+nav > :not(:last-child) > button {
+	border-bottom: none;
+}
+nav button[aria-pressed="true"] {
+	border-bottom: none;
+	background-color: #fff;
+}
+
+main {
+	border: 1px solid #999;
+	border-top: 0 solid #fff;
+	border-radius: 3px;
+	background-image: linear-gradient(to bottom, #fff 0 3px, transparent 3px),
+		linear-gradient(to top, #fff 0 3px, transparent 3px),
+		linear-gradient(to right, #fff 0 3px, transparent 3px),
+		linear-gradient(to left, #fff 0 3px, transparent 3px);
+	padding: 10px;
+}
+main > * {
+	display: none; /* Overridden dynamically on a per-element basis */
+	flex-direction: column;
+	justify-content: space-evenly;
+	justify-items: stretch;
+
+	width: 100%;
+	height: 100%;
+}
+fieldset {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	justify-items: stretch;
+}
+main > * > *,
+fieldset > * {
+	flex: 1 0 auto;
+}
+main > div div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	justify-items: stretch;
+
+	gap: 8px;
+}
+
+#sample_rate {
+	display: grid;
+	grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+}
+
+input[type="range"] {
+	width: 70%;
+	vertical-align: middle;
+}
+
+footer {
+	margin-top: 0;
+	display: flex;
+	gap: 8px;
+}
+footer > :last-child {
+	margin-left: auto;
+}
+footer button {
+	padding: 3px;
+	min-width: 80px;
+}
+
+/* Help functionality */
+#settings.help #helpButton,
+#settings.help label,
+#settings.help label * {
+	cursor: help;
+}
+#settings.help label:not([data-help]),
+#settings.help label:not([data-help]) * {
+	cursor: not-allowed;
+}
+
+#helpPopup {
+	position: absolute;
+
+	background-color: #ff8;
+	border: none;
+	box-shadow: #222e 5px 5px;
+}

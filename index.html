@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="style.css" />
+		<script defer src="script.js"></script>
+		<title>BGB settings UI mockup</title>
+		<meta name="viewport" content="width=device-width" />
+	</head>
+	<body>
+		<form id="settings">
+			<header>
+				bgb control panel
+				<button type="button" class="wm-button" disabled id="helpButton">?</button>
+				<button type="button" class="wm-button" disabled>X</button>
+			</header>
+			<div id="contents">
+				<nav>
+					<div>
+						<button type="button" aria-pressed="true" aria-controls="sound">
+							Sound
+						</button>
+						<button type="button" aria-pressed="false" aria-controls="gb_colors">
+							GB Colors
+						</button>
+						<button type="button" aria-pressed="false" aria-controls="joypad">
+							Joypad
+						</button>
+						<button type="button" aria-pressed="false" aria-controls="misc">
+							Misc
+						</button>
+					</div>
+					<div>
+						<button type="button" aria-pressed="false" aria-controls="graphics">
+							Graphics
+						</button>
+						<button type="button" aria-pressed="false" aria-controls="system">
+							System
+						</button>
+						<button type="button" aria-pressed="false" aria-controls="debug">
+							Debug
+						</button>
+						<button type="button" aria-pressed="false" aria-controls="exceptions">
+							Exceptions
+						</button>
+					</div>
+				</nav>
+				<main>
+					<div id="sound" style="display: block flex">
+						<div>
+							<label
+								data-help='High quality improves sound, at the expense of higher CPU usage. Consider using "Fast" if BGB lags.'
+								>Enable
+								<select>
+									<option>Off</option>
+									<option>Fast</option>
+									<option>High quality</option>
+								</select></label
+							>
+							<label> <input type="checkbox" /> Mono output</label>
+						</div>
+						<label
+							>Volume <input type="range" min="-24" max="0" step="0.1" /><span
+								>-1.0</span
+							></label
+						>
+						<fieldset>
+							<legend>Advanced</legend>
+							<div>
+								<label
+									>Depth
+									<select>
+										<option>16-bit</option>
+										<option>8-bit</option>
+									</select></label
+								><label
+									data-help="If checked: when sound initialization fails, a popup will be displayed.<br>This is intended as a troubleshooting tool."
+									><input type="checkbox" /> Show warnings</label
+								>
+							</div>
+							<div>
+								<div></div>
+								<label data-help="??? Not sure what this does"
+									><input type="checkbox" /> Disable events</label
+								>
+							</div>
+							<label
+								>Latency <input type="range" min="8" max="160" step="1" /><span
+									>-1.0</span
+								></label
+							>
+						</fieldset>
+						<fieldset id="sample_rate">
+							<legend>Sample rate (Hz)</legend>
+							<label><input type="radio" name="sample_rate" checked /> Auto</label
+							><label><input type="radio" name="sample_rate" /> 24000</label
+							><label><input type="radio" name="sample_rate" /> 48000</label
+							><label><input type="radio" name="sample_rate" /> 96000</label
+							><label><input type="radio" name="sample_rate" /> 11025</label
+							><label><input type="radio" name="sample_rate" /> 22050</label
+							><label><input type="radio" name="sample_rate" /> 44100</label
+							><label
+								><input type="radio" name="sample_rate" />
+								<input type="text" size="5"
+							/></label>
+						</fieldset>
+					</div>
+					<div id="gb_colors">
+						<input type="checkbox" />
+						GB Colors
+					</div>
+					<div id="joypad">
+						<input type="checkbox" />
+						Joypad
+					</div>
+					<div id="misc">
+						<input type="checkbox" />
+						Misc
+					</div>
+					<div id="graphics">
+						<input type="checkbox" />
+						Graphics
+					</div>
+					<div id="system">
+						<input type="checkbox" />
+						System
+					</div>
+					<div id="debug">
+						<input type="checkbox" />
+						Debug
+					</div>
+					<div id="exceptions">
+						<input type="checkbox" />
+						Exceptions
+					</div>
+				</main>
+			</div>
+			<footer>
+				<button>OK</button>
+				<button>Cancel</button>
+				<button>Apply</button>
+				<button>Defaults</button>
+			</footer>
+		</form>
+		<dialog id="helpPopup" style="display: none"></dialog>
+	</body>
+</html>
